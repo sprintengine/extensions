@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/sprintengine/sprintengine.git",
+  "commit": "1cf8d221a38556d78cbbcebc218360ba49ecace4",
+  "path": "packages/extension-sdk",
+  "build": {
+    "typescript": "7.0.2",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0"
+  }
+}
