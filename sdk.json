@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/sprintengine/sprintengine.git",
-  "commit": "1cf8d221a38556d78cbbcebc218360ba49ecace4",
+  "commit": "1e74419b6fa099f0dfa375985a22c521c8b2a3a0",
   "path": "packages/extension-sdk",
   "build": {
     "typescript": "7.0.2",
