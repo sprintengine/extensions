@@ -1,0 +1,7 @@
+{
+  "$schema": "./catalogue.schema.json",
+  "catalogueVersion": 1,
+  "name": "Official extensions",
+  "owner": "sprintengine",
+  "extensions": []
+}

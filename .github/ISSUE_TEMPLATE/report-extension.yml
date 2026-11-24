@@ -1,0 +1,39 @@
+name: Report an extension
+description: A listed extension that is harmful, deceptive, infringing or broken.
+title: 'Report: '
+labels: [report]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **A security issue or active malware?** Don't file it here. Report it privately instead: https://github.com/sprintengine/extensions/security/advisories/new
+  - type: input
+    id: extension
+    attributes:
+      label: Extension
+      description: Its id, such as acme.notes, or its repository.
+    validations:
+      required: true
+  - type: dropdown
+    id: reason
+    attributes:
+      label: What is wrong
+      options:
+        - Malicious or harmful behaviour
+        - Impersonates another publisher or Studio
+        - Tracks people or their work
+        - Concealed or obfuscated code
+        - Trademark or copyright
+        - Explicit content
+        - Paid or locked features
+        - Broken or misleading listing
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What you saw, and how to reproduce it.
+    validations:
+      required: true

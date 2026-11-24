@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security issue privately
+    url: https://github.com/sprintengine/extensions/security/advisories/new
+    about: Malware or a vulnerability in a listed extension. Only the maintainers see it.
+  - name: Is my extension listed?
+    url: https://github.com/sprintengine/extensions/blob/main/status.json
+    about: Find your repository in status.json to see what was listed, and why not.
