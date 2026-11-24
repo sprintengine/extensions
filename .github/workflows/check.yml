@@ -1,0 +1,55 @@
+name: Check
+
+# Every file against the SDK's validators and the promises the files make
+# (the release lock only grows, the kill list never goes back), the indexer's
+# tests, and each release new since the base fetched and checked byte for byte.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Cache the SDK build
+        uses: actions/cache@v4
+        with:
+          path: .sdk
+          key: sdk-${{ hashFiles('sdk.json', 'scripts/setup-sdk.sh') }}
+
+      - name: Build the SDK at the pinned commit
+        run: scripts/setup-sdk.sh
+
+      - name: Install the type checker
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Test the indexer and the checks
+        run: npm test
+
+      - name: Check every file
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            node src/cli.ts check --base "$BASE" --verify
+          else
+            node src/cli.ts check --verify
+          fi

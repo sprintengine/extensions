@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://raw.githubusercontent.com; img-src https://raw.githubusercontent.com; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <title>Open an extension in SprintEngine Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="page.js"></script>
+  </head>
+  <body>
+    <main>
+      <p class="kicker">SprintEngine Studio extension</p>
+      <div class="head">
+        <img id="icon" alt="" hidden width="64" height="64">
+        <div>
+          <h1 id="title">Opening the extension…</h1>
+          <p id="byline" class="muted"></p>
+        </div>
+      </div>
+      <p id="description"></p>
+      <dl id="facts" hidden></dl>
+      <p id="error" class="error" role="alert" hidden></p>
+      <section id="open" hidden>
+        <p><a id="link" class="button" href="#">Open in Studio</a></p>
+        <p class="muted">
+          The link opens the extension’s page in Settings → Extensions. It never installs anything:
+          you read the page there and press Install.
+        </p>
+        <p class="muted" id="unadded" hidden>
+          This catalogue is one you may not have added; Studio asks before it reads it.
+        </p>
+        <p class="muted">
+          No Studio yet? It is built from source:
+          <a href="https://github.com/sprintengine/sprintengine#running-it">how to run it</a>.
+          Then open this page again.
+        </p>
+      </section>
+      <footer class="muted">
+        Listings come from <a href="https://github.com/sprintengine/extensions">the extension catalogue</a>.
+        <a href="https://github.com/sprintengine/extensions/issues/new/choose">Report an extension</a>.
+      </footer>
+    </main>
+  </body>
+</html>
